@@ -44,7 +44,13 @@ class MemberController extends Controller
 
     public function delete($id){
         $data = Member::find($id);
-        $data->delete();
-        return redirect()->route('member')->with('success',' Data Baptis Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('jemaat')->with('success','Data Jemaat Berhasil dihapus');
+        } else {
+            return redirect()->route('jemaat')->with('error','Data Jemaat tidak ditemukan atau gagal dihapus');
+        }
     }
+    
 }

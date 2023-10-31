@@ -36,15 +36,26 @@ class WeddingController extends Controller
         return view('tampildatanikah', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id) {
         $data = Wedding::find($id);
+    
+        if (!$data) {
+            return redirect()->route('nikah')->with('error', 'Data Nikah tidak Ditemukan!');
+        }
+    
         $data->update($request->all());
-        return redirect()->route('nikah')->with('success',' Data Nikah Berhasil di Update');
+    
+        return redirect()->route('nikah')->with('success', 'Data Nikah Berhasil di Update');
     }
 
     public function delete($id){
         $data = Wedding::find($id);
-        $data->delete();
-        return redirect()->route('nikah')->with('success',' Data Nikah Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('nikah')->with('success','Data Pasangan Berhasil dihapus');
+        } else {
+            return redirect()->route('nikah')->with('error','Data Pasangan tidak ditemukan atau gagal dihapus');
+        }
     }
 }

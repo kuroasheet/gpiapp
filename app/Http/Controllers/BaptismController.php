@@ -32,19 +32,32 @@ class BaptismController extends Controller
     public function tampilkandata($id){
 
         $data = Baptism::find($id);
-        //dd($data);
+        // dd($data);
         return view('tampildatabaptis', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id) {
         $data = Baptism::find($id);
+    
+        if (!$data) {
+            return redirect()->route('baptis')->with('error', 'Data Baptis tidak Ditemukan!');
+        }
+    
         $data->update($request->all());
-        return redirect()->route('baptis')->with('success',' Data Baptis Berhasil di Update');
+    
+        return redirect()->route('baptis')->with('success', 'Data Baptis Berhasil di Update');
     }
+    
 
     public function delete($id){
         $data = Baptism::find($id);
-        $data->delete();
-        return redirect()->route('baptis')->with('success',' Data Baptis Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('baptis')->with('success','Data Baptis Berhasil dihapus');
+        } else {
+            return redirect()->route('baptis')->with('error','Data Baptis tidak ditemukan atau gagal dihapus');
+        }
     }
+    
 }

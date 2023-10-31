@@ -30,7 +30,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="container">
-        <a href="/tambahbulan" class="btn btn-success">Tambah +</a>
+        <a href="/month/tambahbulan" class="btn btn-success">Tambah +</a>
     
         <div class="row g-3 align-items-center mt-2">
             <div class="col-auto">
@@ -72,8 +72,8 @@
                     <td>{{ $row->pemasukan }}</td>
                     <td>{{ $row->pengeluaran }}</td>
                     <td>
-                        <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->bulan }}">Hapus</a>
+                        <a href="/month/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->bulan }}">Hapus</a>
                     </td>
                   </tr>
                 @endforeach
@@ -100,29 +100,31 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 <script>
-    $('.delete').click( function(){
-        var bulanid = $(this).attr('data-id');
-        var nama = $(this).attr('data-nama');
-
-        swal({
-                title: "Apakah anda yakin?",
-                text: "Anda akan menghapus Laporan Keuangan Bulan "+nama+" ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-                })
-                .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/delete/"+bulanid+""
-                    swal("Laporan Keuangan Bulanan berhasil dihapus!", {
-                    icon: "success",
-                    });
-                } else {
-                    swal("Laporan Keuangan Bulanan tidak jadi dihapus!");
-                }
-                });
-    });
-</script>
+  $('.delete').click(function (event) {
+      event.preventDefault(); // Prevent the default anchor behavior
+  
+      var bulanid = $(this).attr('data-id');
+      var nama = $(this).attr('data-nama');
+  
+      swal({
+          title: "Apakah anda yakin?",
+          text: "Anda akan menghapus Data Laporan Keuangan Bulan " + nama + " ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/month/delete/" + bulanid;
+              swal("Data berhasil dihapus!", {
+                  icon: "success",
+              });
+          } else {
+              swal("Data tidak jadi dihapus!");
+          }
+      });
+  });
+  </script>
 
 <script>
 @if (Session::has ('success'))

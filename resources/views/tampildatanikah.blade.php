@@ -12,33 +12,30 @@
               <div class="card">
                   <div class="card-body">
                     @if ($data)
-                      <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                      <form action="{{ route('updatedata', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nomor Surat Nikah</label>
-                            <input type="text" name="nomorsuratnikah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="nomorsuratnikah" class="form-label">Nomor Surat Nikah</label>
+                            <input type="text" name="nomorsuratnikah" class="form-control" id="nomorsuratnikah" aria-describedby="emailHelp" value="{{ $data->nomorsuratnikah }}">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Pasangan</label>
-                            <input type="text" name="namapasangan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="namapasangan" class="form-label">Nama Pasangan</label>
+                            <input type="text" name="namapasangan" class="form-control" id="namapasangan" aria-describedby="emailHelp" value="{{ $data->namapasangan }}">
                           </div>
                           <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Tanggal Menikah</label>
-                              <input type="text" name="tanggalmenikah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                              <label for="tanggalmenikah" class="form-label">Tanggal Menikah</label>
+                              <input type="text" name="tanggalmenikah" class="form-control" id="tanggalmenikah" aria-describedby="emailHelp" value="{{ $data->tanggalmenikah }}">
                             </div>  
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
-                        @else
+                    @else
                         <!-- Handle ketika $data adalah null atau tidak ada -->
-                        @endif
+                    @endif
                   </div>
               </div>
           </div>
       </div>
   </div>
-
-
-  
 
 <!-- Include Bootstrap JS and jQuery (for Bootstrap JavaScript components) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

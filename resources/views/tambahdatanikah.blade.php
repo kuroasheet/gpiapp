@@ -10,7 +10,7 @@
           <div class="col-8">
               <div class="card">
                   <div class="card-body">
-                      <form action="/insertdata" method="POST" enctype="multipart/form-data">
+                      <form action="/wedding/insertdata" method="POST" enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nomor Surat Nikah</label>

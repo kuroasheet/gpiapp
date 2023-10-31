@@ -36,15 +36,26 @@ class MonthController extends Controller
         return view('tampildatabulan', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id) {
         $data = Month::find($id);
+    
+        if (!$data) {
+            return redirect()->route('bulan')->with('error', 'Data Keuangan Bulanan tidak Ditemukan!');
+        }
+    
         $data->update($request->all());
-        return redirect()->route('bulan')->with('success',' Laporan Keuangan Bulanan Berhasil di Update');
+    
+        return redirect()->route('bulan')->with('success', 'Data Keuangan Bulanan Berhasil di Update');
     }
 
     public function delete($id){
         $data = Month::find($id);
-        $data->delete();
-        return redirect()->route('bulan')->with('success',' Laporan Keuangan Bulanan Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('bulan')->with('success','Data Keuangan Bulanan Berhasil dihapus');
+        } else {
+            return redirect()->route('bulan')->with('error','Data Keuangan Bulanan tidak ditemukan atau gagal dihapus');
+        }
     }
 }

@@ -36,15 +36,26 @@ class OfferingController extends Controller
         return view('tampildataperming', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id) {
         $data = Offering::find($id);
+    
+        if (!$data) {
+            return redirect()->route('persembahan')->with('error', 'Data Persembahan Mingguan tidak Ditemukan!');
+        }
+    
         $data->update($request->all());
-        return redirect()->route('persembahan')->with('success',' Data Persembahan Mingguan Berhasil di Update');
+    
+        return redirect()->route('persembahan')->with('success', 'Data Persembahan Mingguan Berhasil di Update');
     }
 
     public function delete($id){
         $data = Offering::find($id);
-        $data->delete();
-        return redirect()->route('persembahan')->with('success',' Data Persembahan Mingguan Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('persembahan')->with('success','Data Persembahan Mingguan Berhasil dihapus');
+        } else {
+            return redirect()->route('persembahan')->with('error','Data Persembahan Mingguan tidak ditemukan atau gagal dihapus');
+        }
     }
 }

@@ -20,7 +20,7 @@
     <h1 class="text-center mb-4">Data Jemaat</h1>
 
     <div class="container">
-        <a href="/tambahjemaat" class="btn btn-success">Tambah +</a>
+        <a href="/member/tambahjemaat" class="btn btn-success">Tambah +</a>
 
         <div class="row g-3 align-items-center mt-2">
             <div class="col-auto">

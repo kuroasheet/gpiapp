@@ -36,15 +36,26 @@ class InventController extends Controller
         return view('tampildatainventaris', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id) {
         $data = Invent::find($id);
+    
+        if (!$data) {
+            return redirect()->route('inventaris')->with('error', 'Data Inventaris tidak Ditemukan!');
+        }
+    
         $data->update($request->all());
-        return redirect()->route('inventaris')->with('success',' Data Inventaris Berhasil di Update');
+    
+        return redirect()->route('inventaris')->with('success', 'Data Inventaris Berhasil di Update');
     }
 
     public function delete($id){
         $data = Invent::find($id);
-        $data->delete();
-        return redirect()->route('inventaris')->with('success',' Data Inventaris Berhasil di Hapus');
+    
+        if ($data) {
+            $data->delete();
+            return redirect()->route('inventaris')->with('success','Data Inventaris Berhasil dihapus');
+        } else {
+            return redirect()->route('inventaris')->with('error','Data Inventaris tidak ditemukan atau gagal dihapus');
+        }
     }
 }
