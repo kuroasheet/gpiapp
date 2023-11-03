@@ -43,35 +43,35 @@ Route::get('/member/delete/{id}',[MemberController::class, 'delete'])->name('del
 
 Route::get('/baptis', [BaptismController::class, 'index'])->name('baptis');
 Route::get('/baptism/tambahbaptis',[BaptismController::class, 'tambahbaptis'])->name('tambahbaptis');
-Route::post('/baptism/insertdata',[BaptismController::class, 'insertdata'])->name('insertdata');
-Route::get('/baptism/tampilkandata/{id}',[BaptismController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/baptism/updatedata/{id}',[BaptismController::class, 'updatedata'])->name('updatedata');
-Route::get('/baptism/delete/{id}',[BaptismController::class, 'delete'])->name('delete');
+Route::post('/baptism/insertdata',[BaptismController::class, 'insertdata'])->name('baptism.insertdata');
+Route::get('/baptism/tampilkandata/{id}',[BaptismController::class, 'tampilkandata'])->name('baptism.tampilkandata');
+Route::post('/baptism/updatedata/{id}',[BaptismController::class, 'updatedata'])->name('baptism.updatedata');
+Route::get('/baptism/delete/{id}',[BaptismController::class, 'delete'])->name('baptism.delete');
 
 Route::get('/nikah',[WeddingController::class, 'index'])->name('nikah');
 Route::get('/wedding/tambahnikah',[WeddingController::class, 'tambahnikah'])->name('tambahnikah');
-Route::post('/wedding/insertdata',[WeddingController::class, 'insertdata'])->name('insertdata');
-Route::get('/wedding/tampilkandata/{id}',[WeddingController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/wedding/updatedata/{id}',[WeddingController::class, 'updatedata'])->name('updatedata');
-Route::get('/wedding/delete/{id}',[WeddingController::class, 'delete'])->name('delete');
+Route::post('/wedding/insertdata',[WeddingController::class, 'insertdata'])->name('wedding.insertdata');
+Route::get('/wedding/tampilkandata/{id}',[WeddingController::class, 'tampilkandata'])->name('wedding.tampilkandata');
+Route::post('/wedding/updatedata/{id}',[WeddingController::class, 'updatedata'])->name('wedding.updatedata');
+Route::get('/wedding/delete/{id}',[WeddingController::class, 'delete'])->name('wedding.delete');
 
 Route::get('/inventaris',[InventController::class, 'index'])->name('inventaris');
 Route::get('/invent/tambahinventaris',[InventController::class, 'tambahinventaris'])->name('tambahinventaris');
-Route::post('/invent/insertdata',[InventController::class, 'insertdata'])->name('insertdata');
-Route::get('/invent/tampilkandata/{id}',[InventController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/invent/updatedata/{id}',[InventController::class, 'updatedata'])->name('updatedata');
-Route::get('/invent/delete/{id}',[InventController::class, 'delete'])->name('delete');
+Route::post('/invent/insertdata',[InventController::class, 'insertdata'])->name('invent.insertdata');
+Route::get('/invent/tampilkandata/{id}',[InventController::class, 'tampilkandata'])->name('invent.tampilkandata');
+Route::post('/invent/updatedata/{id}',[InventController::class, 'updatedata'])->name('invent.updatedata');
+Route::get('/invent/delete/{id}',[InventController::class, 'delete'])->name('invent.delete');
 
 Route::get('/persembahan',[OfferingController::class, 'index'])->name('persembahan');
 Route::get('/offering/tambahperming',[OfferingController::class, 'tambahperming'])->name('tambahperming');
-Route::post('/offering/insertdata',[OfferingController::class, 'insertdata'])->name('insertdata');
-Route::get('/offering/tampilkandata/{id}',[OfferingController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/offering/updatedata/{id}',[OfferingController::class, 'updatedata'])->name('updatedata');
-Route::get('/offering/delete/{id}',[OfferingController::class, 'delete'])->name('delete');
+Route::post('/offering/insertdata',[OfferingController::class, 'insertdata'])->name('offering.insertdata');
+Route::get('/offering/tampilkandata/{id}',[OfferingController::class, 'tampilkandata'])->name('offering.tampilkandata');
+Route::post('/offering/updatedata/{id}',[OfferingController::class, 'updatedata'])->name('offering.updatedata');
+Route::get('/offering/delete/{id}',[OfferingController::class, 'delete'])->name('offering.delete');
 
 Route::get('/bulan',[MonthController::class, 'index'])->name('bulan');
 Route::get('/month/tambahbulan',[MonthController::class, 'tambahbulan'])->name('tambahbulan');
-Route::post('/month/insertdata',[MonthController::class, 'insertdata'])->name('insertdata');
-Route::get('/month/tampilkandata/{id}',[MonthController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/month/updatedata/{id}',[MonthController::class, 'updatedata'])->name('updatedata');
-Route::get('/month/delete/{id}',[MonthController::class, 'delete'])->name('delete');
+Route::post('/month/insertdata',[MonthController::class, 'insertdata'])->name('month.insertdata');
+Route::get('/month/tampilkandata/{id}',[MonthController::class, 'tampilkandata'])->name('month.tampilkandata');
+Route::post('/month/updatedata/{id}',[MonthController::class, 'updatedata'])->name('month.updatedata');
+Route::get('/month/delete/{id}',[MonthController::class, 'delete'])->name('month.delete');

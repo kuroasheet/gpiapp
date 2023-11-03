@@ -265,13 +265,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/persembahan" class="nav-link {{ request()->is('persembahan-mingguan*') ? 'active' : '' }}">
+                        <a href="/persembahan" class="nav-link {{ request()->is('persembahan*') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Persembahan Mingguan</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/bulan" class="nav-link {{ request()->is('laporan-keuangan-bulanan*') ? 'active' : '' }}">
+                        <a href="/bulan" class="nav-link {{ request()->is('bulan*') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Laporan Keuangan Bulanan</p>
                         </a>

@@ -72,8 +72,8 @@
                     <td>{{ $row->pemasukan }}</td>
                     <td>{{ $row->pengeluaran }}</td>
                     <td>
-                        <a href="/month/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->bulan }}">Hapus</a>
+                        <a href="{{ route('month.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('month.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->bulan }}">Hapus</a>
                     </td>
                   </tr>
                 @endforeach

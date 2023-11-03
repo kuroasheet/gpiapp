@@ -78,8 +78,8 @@
                     <td>{{ $row->nilai }}</td>
                     <td>{{ $row->kondisi }}</td>
                     <td>
-                        <a href="/invent/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->namabarang }}">Hapus</a>
+                        <a href="{{ route('invent.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('invent.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->namabarang }}">Hapus</a>
                     </td>
                   </tr>
                 @endforeach

@@ -80,8 +80,8 @@
                     <td>{{ $row->dibaptisoleh }}</td>
                     <td>{{ $row->tanggalbaptis }}</td>
                     <td>
-                        <a href="/baptism/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Hapus</a>
+                        <a href="{{ route('baptism.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('baptism.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Hapus</a>
 
                     </td>
                   </tr>

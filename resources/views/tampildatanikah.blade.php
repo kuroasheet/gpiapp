@@ -12,7 +12,7 @@
               <div class="card">
                   <div class="card-body">
                     @if ($data)
-                      <form action="{{ route('updatedata', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+                      <form action="{{ route('wedding.updatedata', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
                             <label for="nomorsuratnikah" class="form-label">Nomor Surat Nikah</label>

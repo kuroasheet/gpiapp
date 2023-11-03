@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-body">
             @if ($data)
-              <form action="{{ route('updatedata', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('month.updatedata', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label for="bulan" class="form-label">Bulan</label>

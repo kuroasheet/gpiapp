@@ -75,8 +75,8 @@
                     <td>{{ $row->diakonia }}</td>
                     <td>{{ $row->ibadahrayatghminggu }}</td>
                     <td>
-                        <a href="/offering/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->tanggal }}">Hapus</a>
+                        <a href="{{ route('offering.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('offering.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->tanggal }}">Hapus</a>
                     </td>
                   </tr>
                 @endforeach

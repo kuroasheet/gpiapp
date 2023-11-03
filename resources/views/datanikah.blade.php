@@ -72,8 +72,8 @@
                     <td>{{ $row->namapasangan }}</td>
                     <td>{{ $row->tanggalmenikah }}</td>
                     <td>
-                        <a href="/wedding/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->namapasangan }}">Hapus</a>
+                        <a href="{{ route('wedding.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('wedding.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->namapasangan }}">Hapus</a>
                     </td>
                   </tr>
                 @endforeach
