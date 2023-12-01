@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('pekerjaan');
             $table->integer('tahunbergabung');
+            $table->string('email')->unique()->nullable();
             $table->timestamps();
         });
     }

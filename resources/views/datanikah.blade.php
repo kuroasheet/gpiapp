@@ -30,8 +30,10 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="container">
+        @if (auth()->user()->level != 'jemaat')
         <a href="/wedding/tambahnikah" class="btn btn-success">Tambah +</a>
-    
+        @endif
+
         <div class="row g-3 align-items-center mt-2">
             <div class="col-auto">
               <form action="/nikah" method="GET" class="form-inline">
@@ -42,7 +44,7 @@
                     <button type="submit" class="btn btn-primary">Cari</button>
                   </div>
                 </div>
-              </form> 
+              </form>
             </div>
         </div>
         <div class="row">
@@ -58,12 +60,14 @@
                     <th scope="col">Nomor Surat Nikah</th>
                     <th scope="col">Nama Pasangan</th>
                     <th scope="col">Tanggal Menikah</th>
+                    @if (auth()->user()->level != 'jemaat')
                     <th scope="col">Aksi</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
                 @php
-                    $no = 1;   
+                    $no = 1;
                 @endphp
                 @foreach ($data as $index => $row)
                 <tr>
@@ -71,14 +75,16 @@
                     <td>{{ $row->nomorsuratnikah }}</td>
                     <td>{{ $row->namapasangan }}</td>
                     <td>{{ $row->tanggalmenikah }}</td>
+                    @if (auth()->user()->level != 'jemaat')
                     <td>
                         <a href="{{ route('wedding.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
                         <a href="{{ route('wedding.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->namapasangan }}">Hapus</a>
                     </td>
+                    @endif
                   </tr>
                 @endforeach
-    
-                  
+
+
                 </tbody>
               </table>
               {{ $data->links() }}
@@ -102,10 +108,10 @@
 <script>
   $('.delete').click(function (event) {
       event.preventDefault(); // Prevent the default anchor behavior
-  
+
       var nikahid = $(this).attr('data-id');
       var nama = $(this).attr('data-nama');
-  
+
       swal({
           title: "Apakah anda yakin?",
           text: "Anda akan menghapus Data Pasangan " + nama + " ",

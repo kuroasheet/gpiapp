@@ -30,8 +30,9 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="container">
+        @if (auth()->user()->level != 'jemaat')
         <a href="/month/tambahbulan" class="btn btn-success">Tambah +</a>
-    
+        @endif
         <div class="row g-3 align-items-center mt-2">
             <div class="col-auto">
               <form action="/bulan" method="GET" class="form-inline">
@@ -42,7 +43,7 @@
                     <button type="submit" class="btn btn-primary">Cari</button>
                   </div>
                 </div>
-              </form> 
+              </form>
             </div>
         </div>
         <div class="row">
@@ -58,12 +59,14 @@
                     <th scope="col">Bulan</th>
                     <th scope="col">Pemasukan</th>
                     <th scope="col">Pengeluaran</th>
+                    @if (auth()->user()->level != 'jemaat')
                     <th scope="col">Aksi</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
                 @php
-                    $no = 1;   
+                    $no = 1;
                 @endphp
                 @foreach ($data as $index => $row)
                 <tr>
@@ -71,14 +74,16 @@
                     <td>{{ $row->bulan }}</td>
                     <td>{{ $row->pemasukan }}</td>
                     <td>{{ $row->pengeluaran }}</td>
+                    @if (auth()->user()->level != 'jemaat')
                     <td>
                         <a href="{{ route('month.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
                         <a href="{{ route('month.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->bulan }}">Hapus</a>
                     </td>
+                    @endif
                   </tr>
                 @endforeach
-    
-                  
+
+
                 </tbody>
               </table>
               {{ $data->links() }}
@@ -102,10 +107,10 @@
 <script>
   $('.delete').click(function (event) {
       event.preventDefault(); // Prevent the default anchor behavior
-  
+
       var bulanid = $(this).attr('data-id');
       var nama = $(this).attr('data-nama');
-  
+
       swal({
           title: "Apakah anda yakin?",
           text: "Anda akan menghapus Data Laporan Keuangan Bulan " + nama + " ",

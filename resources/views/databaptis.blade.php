@@ -30,8 +30,9 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="container">
+        @if (auth()->user()->level != 'jemaat')
         <a href="/baptism/tambahbaptis" class="btn btn-success">Tambah +</a>
-    
+        @endif
         <div class="row g-3 align-items-center mt-2">
             <div class="col-auto">
               <form action="/baptis" method="GET" class="form-inline">
@@ -42,7 +43,7 @@
                     <button type="submit" class="btn btn-primary">Cari</button>
                   </div>
                 </div>
-              </form>                        
+              </form>
             </div>
         </div>
         <div class="row">
@@ -62,12 +63,14 @@
                     <th scope="col">Nama Ibu</th>
                     <th scope="col">Dibaptis Oleh</th>
                     <th scope="col">Tanggal Baptis</th>
+                    @if (auth()->user()->level != 'jemaat')
                     <th scope="col">Aksi</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
                 @php
-                    $no = 1;   
+                    $no = 1;
                 @endphp
                 @foreach ($data as $index => $row)
                 <tr>
@@ -79,15 +82,16 @@
                     <td>{{ $row->namaibu }}</td>
                     <td>{{ $row->dibaptisoleh }}</td>
                     <td>{{ $row->tanggalbaptis }}</td>
+                    @if (auth()->user()->level != 'jemaat')
                     <td>
                         <a href="{{ route('baptism.tampilkandata', $row->id )}}" class="btn btn-info">Edit</a>
                         <a href="{{ route('baptism.delete', ['id' => $row->id]) }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Hapus</a>
-
                     </td>
+                    @endif
                   </tr>
                 @endforeach
-    
-                  
+
+
                 </tbody>
               </table>
               {{ $data->links() }}
@@ -111,10 +115,10 @@
 <script>
   $('.delete').click(function (event) {
       event.preventDefault(); // Prevent the default anchor behavior
-  
+
       var baptisid = $(this).attr('data-id');
       var nama = $(this).attr('data-nama');
-  
+
       swal({
           title: "Apakah anda yakin?",
           text: "Anda akan menghapus Data Bpk/Ibu, Sdra/i " + nama + " ",

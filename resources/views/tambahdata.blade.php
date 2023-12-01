@@ -5,7 +5,7 @@
   <h1 class="text-center mb-5 mt-5">Tambah Data Jemaat</h1>
 
   <div class="container mb-5">
-      
+
       <div class="row justify-content-center">
           <div class="col-8">
               <div class="card">
@@ -22,12 +22,12 @@
                             </div>
                             <div class="mb-3">
                               <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
-                              <select class="form-select" name="jeniskelamin" id="jenisKelamin" name="jenisKelamin" aria-label="Pilih Jenis Kelamin">
+                              <select class="form-select form-control" name="jeniskelamin" id="jenisKelamin" name="jenisKelamin" aria-label="Pilih Jenis Kelamin">
                                   <option selected disabled>Pilih Jenis Kelamin</option>
                                   <option value="Laki-laki">Laki-laki</option>
                                   <option value="Perempuan">Perempuan</option>
                               </select>
-                          </div>                            
+                          </div>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Alamat</label>
                               <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -39,6 +39,10 @@
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Tahun Bergabung</label>
                               <input type="number" name="tahunbergabung" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                              <label for="inputEmail" class="form-label">Email</label>
+                              <input type="email" name="email" class="form-control" id="inputEmail">
                             </div>
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
