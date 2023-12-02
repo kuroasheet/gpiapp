@@ -30,11 +30,14 @@
       </div><!-- /.container-fluid -->
     </div>
     <div class="container">
-        @if (auth()->user()->level != 'jemaat')
-        <a href="/member/tambahjemaat" class="btn btn-success">Tambah +</a>
-        @endif
 
-        <div class="row g-3 align-items-center mt-2">
+
+        <div class="row g-3 mb-3 align-items-center mt-2">
+            @if (auth()->user()->level != 'jemaat')
+            <div class="col-auto pr-0">
+                <a href="/member/tambahjemaat" class="btn btn-success">Tambah +</a>
+            </div>
+            @endif
             <div class="col-auto">
               <form action="/jemaat" method="GET" class="form-inline">
                 <label class="sr-only" for="search">Cari:</label>
@@ -47,6 +50,7 @@
               </form>
             </div>
         </div>
+
         <div class="row">
         {{-- @if ($message = Session::get('success'))
              <div class="alert alert-success" role="alert">

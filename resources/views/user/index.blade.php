@@ -75,7 +75,7 @@
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- /.modal -->
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="table-user" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th style="width: 50px">No</th>
@@ -162,7 +162,7 @@
 <script src="{{ asset('template') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
     $(function() {
-        $('#example1').DataTable();
+        $('#table-user').DataTable();
     });
 
 
